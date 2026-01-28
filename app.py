@@ -30,4 +30,3 @@ if st.button("Classify"):
         label = encoder.inverse_transform(prediction)[0]
 
         st.success(f"Predicted category: {label}")
-
