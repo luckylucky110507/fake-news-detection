@@ -13,74 +13,30 @@ A complete machine learning project that detects whether news articles are **FAK
 ## 📋 Project Structure
 
 ```
-fake news detection/
+fake-news-detection/
 ├── app.py                      # Streamlit web interface
-├── predict.py                  # CLI prediction tool
-├── train_model.py              # Original training script
-├── train_fast.py              # Optimized fast training script
-├── test_model.py              # Model testing script
 ├── fake_real_news.csv         # Dataset (44,898 articles)
+├── fake_news_model.pkl        # Trained Logistic Regression model
+├── tfidf_vectorizer.pkl       # TF-IDF text vectorizer
+├── label_encoder.pkl          # Binary label encoder
 ├── requirements.txt           # Python dependencies
-├── fake_news_model.pkl        # Trained model
-├── tfidf_vectorizer.pkl       # TF-IDF vectorizer
-├── label_encoder.pkl          # Label encoder
-└── README.md                  # This file
+├── README.md                  # Project documentation
+├── .gitignore                 # Git ignore rules
+└── .streamlit/
+    └── config.toml            # Streamlit configuration
 ```
 
 ---
 
 ## 🚀 Quick Start
 
-### 1. Setup Python Environment
-
-**Option A: Using Virtual Environment (Recommended)**
-
-```bash
-# Create virtual environment
-python -m venv .venv
-
-# Activate it
-# On Windows:
-.venv\Scripts\activate
-# On macOS/Linux:
-source .venv/bin/activate
-```
-
-**Option B: Using Conda**
-
-```bash
-conda create -n fake-news python=3.10
-conda activate fake-news
-```
-
-### 2. Install Dependencies
+### 1. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Train the Model (First Time Only)
-
-Choose the training script based on your needs:
-
-**Fast Training (Recommended - ~2 minutes, 96.81% accuracy):**
-```bash
-python train_fast.py
-```
-
-**Full Training (Takes longer, trains on entire dataset):**
-```bash
-python train_model.py
-```
-
-Output:
-- `fake_news_model.pkl` - Trained ML model
-- `tfidf_vectorizer.pkl` - Text vectorizer
-- `label_encoder.pkl` - Label encoder
-
-### 4. Use the Model
-
-#### Option A: Web Interface (Streamlit) ⭐
+### 2. Run the Web App (Streamlit)
 
 ```bash
 streamlit run app.py
@@ -92,23 +48,10 @@ Then open your browser to: `http://localhost:8501`
 - ✅ Clean, user-friendly interface
 - ✅ Real-time predictions
 - ✅ Confidence scores
-- ✅ Beautiful visualizations
+- ✅ Color-coded results (Green=Real, Red=Fake)
+- ✅ Interactive sidebar information
 
-#### Option B: Command Line Interface
-
-```bash
-python predict.py
-```
-
-**Interactive menu:**
-```
-1. Predict news
-2. Exit
-```
-
-Paste your news text and get instant predictions!
-
-#### Option C: Python Script
+### 3. Using the Model in Python
 
 ```python
 import pickle
@@ -190,21 +133,19 @@ print(f"Prediction: {label} ({confidence:.2f}%)")
 
 ---
 
-## 🧪 Testing
+## 📚 File Descriptions
 
-### Run Tests
-
-```bash
-python test_model.py
-```
-
-**Test Samples:**
-```
-✓ News about elections → Predicted correctly
-✓ Conspiracy theories → Predicted as fake
-✓ Medical studies → Predicted correctly
-✓ Vaccine rumors → Predicted as fake
-```
+| File | Description |
+|------|-------------|
+| `app.py` | Main Streamlit web interface for predictions |
+| `fake_real_news.csv` | Dataset with 44,898 labeled articles |
+| `fake_news_model.pkl` | Pre-trained Logistic Regression model |
+| `tfidf_vectorizer.pkl` | Fitted TF-IDF vectorizer (2000 features) |
+| `label_encoder.pkl` | Binary label encoder (FAKE=0, REAL=1) |
+| `requirements.txt` | Python package dependencies |
+| `README.md` | Project documentation |
+| `.gitignore` | Git configuration for version control |
+| `.streamlit/config.toml` | Streamlit app configuration |
 
 ---
 
@@ -213,7 +154,7 @@ python test_model.py
 ### Models not loading
 ```
 Error: Model file not found
-Solution: Run train_fast.py or train_model.py to generate models
+Solution: Ensure all .pkl files are in the project folder
 ```
 
 ### Streamlit not starting
@@ -225,10 +166,10 @@ pip list | grep streamlit
 pip install streamlit --upgrade
 ```
 
-### Slow predictions
-```
-Solution: This is normal for large datasets. Train on sampled data:
-python train_fast.py
+### Port 8501 already in use
+```bash
+# Run on different port
+streamlit run app.py --server.port 8502
 ```
 
 ---
@@ -298,13 +239,15 @@ Display Results with Confidence
 
 | File | Description |
 |------|-------------|
-| `app.py` | Streamlit web interface for predictions |
-| `predict.py` | Interactive CLI for predictions |
-| `train_model.py` | Complete training script |
-| `train_fast.py` | Fast training on sampled data |
-| `test_model.py` | Test predictions with samples |
-| `fake_real_news.csv` | Dataset with 44,898 articles |
-| `requirements.txt` | All Python dependencies |
+| `app.py` | Main Streamlit web interface for predictions |
+| `fake_real_news.csv` | Dataset with 44,898 labeled articles |
+| `fake_news_model.pkl` | Pre-trained Logistic Regression model |
+| `tfidf_vectorizer.pkl` | Fitted TF-IDF vectorizer (2000 features) |
+| `label_encoder.pkl` | Binary label encoder (FAKE=0, REAL=1) |
+| `requirements.txt` | Python package dependencies |
+| `README.md` | Project documentation |
+| `.gitignore` | Git configuration for version control |
+| `.streamlit/config.toml` | Streamlit app configuration |
 
 ---
 
