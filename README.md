@@ -114,5 +114,3 @@ streamlit run app.py --server.port 8502
 - This tool assists in verification but should not be the sole source of truth.
 - Cross-reference multiple sources for critical information.
 
-Last Updated: February 2, 2026
-Model Version: 1.0
