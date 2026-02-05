@@ -243,10 +243,7 @@ st.markdown("---")
 st.markdown(
     """
 <div style='text-align: center; color: #666; padding: 2rem 0;'>
-    <p><strong>Important Disclaimer:</strong></p>
-    <p>This tool is designed to assist in news verification but should not be relied upon as the sole source of truth.
-    Always cross-reference multiple sources for critical information.</p>
-    <hr>
+    
     <small>Fake News Detection System | Powered by Machine Learning</small>
 </div>
 """,
