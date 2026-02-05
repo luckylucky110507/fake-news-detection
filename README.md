@@ -12,19 +12,33 @@ Current Model Performance:
 
 ## Project Structure
 
-```
+Tracked in GitHub:
+```text
 fake-news-detection/
-├── app.py
-├── fake_real_news.csv
-├── fake_news_model.pkl
-├── tfidf_vectorizer.pkl
-├── label_encoder.pkl
-├── requirements.txt
-├── README.md
-├── .gitignore
-└── .streamlit/
-    ├── config.toml
-    └── secrets.toml
++-- .gitignore
++-- README.md
++-- app.py
++-- fake_news_model.pkl
++-- label_encoder.pkl
++-- pyproject.toml
++-- requirements.txt
++-- retrain_model.py
++-- runtime.txt
++-- tfidf_vectorizer.pkl
++-- .streamlit/
+    +-- config.toml
+```
+
+Local-only (ignored by `.gitignore`):
+```text
+fake-news-detection/
++-- fake_real_news.csv
++-- .streamlit/
+    +-- secrets.toml
++-- .venv*/
++-- venv/
++-- __pycache__/
++-- .qodo/
 ```
 
 ---
@@ -62,6 +76,21 @@ Statistics:
 - Fake news: 23,481 (52.3%)
 - Real news: 21,417 (47.7%)
 - Columns: `text`, `label`
+
+---
+
+## Retraining (Optional)
+
+If you have the dataset locally, you can retrain the model:
+
+```bash
+python retrain_model.py
+```
+
+This regenerates:
+- `fake_news_model.pkl`
+- `tfidf_vectorizer.pkl`
+- `label_encoder.pkl`
 
 ---
 
@@ -109,8 +138,6 @@ streamlit run app.py --server.port 8502
 
 ---
 
-## Notes
-
-- This tool assists in verification but should not be the sole source of truth.
-- Cross-reference multiple sources for critical information.
+Last Updated: February 5, 2026
+Model Version: 1.0
 
