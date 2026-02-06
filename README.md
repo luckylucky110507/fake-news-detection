@@ -10,6 +10,15 @@ Current Model Performance:
 
 ---
 
+## Live Demo
+
+Deployed Streamlit app:
+```text
+https://fake-news-detection-i6ke2c9ihsht66ljjenezq.streamlit.app/
+```
+
+---
+
 ## Project Structure
 
 Tracked in GitHub:
@@ -138,6 +147,6 @@ streamlit run app.py --server.port 8502
 
 ---
 
-Last Updated: February 5, 2026
+Last Updated: February 6, 2026
 Model Version: 1.0
 
