@@ -147,6 +147,5 @@ streamlit run app.py --server.port 8502
 
 ---
 
-Last Updated: February 6, 2026
-Model Version: 1.0
+
 
